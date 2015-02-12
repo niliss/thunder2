@@ -5,29 +5,61 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
-<body>
-  <header>
+<body  
+>
+
+  <nav class="navbar nnavbar-fixed-top"> 
+    <div class="navbar-header">
+      <a class="navbar-brand">
+        Te Gusta o No
+      </a>
+    </div>
+  <div class= "navbar-right">
     <% if user_signed_in? %>
       <%= link_to "Salir", destroy_user_session_path, method: :delete %>
       <%= image_tag Gravatar.new(current_user.email).image_url %>
     <% end %>
-    <h1>TE GUSTA O NO</h1>
-  </header>
+   </div>
+  </nav>
+ <p>Elige aquellos amig@s que te gustan de forma anonima, te avisaremos si ambos coinciden, el resto va por tu cuenta.</p>
 
-  <p>Elige aquellos amig@s que te gustan de forma anonima, te avisaremos si ambos coinciden, el resto va por tu cuenta.</p>
-
-  <div class="content">
+  <div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">  
+    
     <% flash.each do |name, err|%>
       <%= content_tag :div, err, class: name %>
     <% end %>
-
+ </div>
+  <div class="col-md-4"></div>
+</div>
+  <div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 panel panel-default">  
     <%= yield %>
   </div>
+  <div class="col-md-4"></div>
+</div>
+ 
+<footer>
+    
+    <div class="row">
 
-  <footer>
-    <p>Escribenos en twitter <a href="#">@tegustaono</a></p>
-  </footer>
+      <div class="col-md-12 text-right">
+         <p>Escribenos en twitter <a href="#">@tegustaono</a></p>
+      </div> 
+    </div>
+</footer>
+ 
 
 </body>
 </html>

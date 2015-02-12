@@ -20,6 +20,7 @@ body {
   background-attachment: fixed;
   font-family: Avenir Next, Arial;
   color: #ffffff;
+  overflow-x: hidden;
 }
 
 p {
